@@ -1,0 +1,28 @@
+<!--
+    <code></code> — muda a cor do conteúdo para representar código.
+
+    <pre></pre> — tag para criar um bloco de código, mantém os espaços em branco.
+-->
+
+<pre>
+    <code>
+        #include &lt;stdio.h&gt;
+            int main(){
+              float valor, converte;
+              char unidade;
+            
+              scanf(&quot;%f %c&quot;, &valor, &unidade);
+            
+              if (unidade == 'f' || unidade == 'F'){
+                converte = (valor - 32.0)/1.8;
+                printf("%.2f (C)", converte);
+              }
+              if (unidade == 'c' || unidade == 'C'){
+                converte = (valor*1.8) + 32;
+                printf("%.2f (F)", converte);
+              }
+              
+              return 0;
+            }
+    </code>
+</pre>
