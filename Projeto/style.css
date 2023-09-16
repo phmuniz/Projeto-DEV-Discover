@@ -1,3 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-color: black;
+
+/*  background-image: url(assets/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+*/
+
+    background: url(assets/bg-mobile.jpg) no-repeat top center /cover;
+}
+
+body *{
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+#container{
+    border: 1px solid;
+    width: 360px;
+    /*
+    margin-top: 56px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    */
+    margin: 56px auto 0px auto;
+}
+
+/* img é um elemento inline, por isso margin: auto não funciona
+    para fazer funcionar, é necessário alterar seu display para block
+*/
+
+/* ou podemos utilizar o text-align para definir que tudo dentro de profile fique centralizado */
+#profile{
+    border: 1px solid;
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img{
+    border: 1px solid;
+    width: 112px;
+}
+
+#profile p{
+    border: 1px solid;
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
 }
