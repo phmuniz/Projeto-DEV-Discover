@@ -7,6 +7,7 @@
 :root{ /*raiz*/
     --text-color: white;
     --bg-img: url(assets/bg-mobile.jpg);
+    --bg-img-switch: url(assets/moon-stars.svg);
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -16,6 +17,7 @@
 .light{
     --text-color: black;
     --bg-img: url(assets/bg-mobile-light.jpg);
+    --bg-img-switch: url(assets/sun.svg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -31,6 +33,7 @@ body{
 */
 
     background: var(--bg-img) no-repeat top center /cover;
+    height: 100vh;
 }
 
 body *{
@@ -39,7 +42,8 @@ body *{
 }
 
 #container{
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
     /*
     margin-top: 56px;
     margin-right: auto;
@@ -49,6 +53,8 @@ body *{
     margin: 56px auto 0px auto;
     padding: 0px 24px;
 }
+
+/*profile*/
 
 /* img é um elemento inline, por isso margin: auto não funciona
     para fazer funcionar, é necessário alterar seu display para block
@@ -68,6 +74,47 @@ body *{
     font-weight: 500;
     line-height: 24px;
     margin-top: 8px;
+}
+
+/*switch*/
+
+#switch{
+    display: flex;
+    width: 64px;
+    margin: 4px auto;
+    position: relative;
+}
+
+#switch button{
+    height: 32px;
+    width: 32px;
+    background: white var(--bg-img-switch) no-repeat center;
+    border-radius: 50%;
+    border: 0px;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: slide_back 0.4s forwards;
+}
+
+.light #switch button{
+    animation: slide_in 0.4s forwards;
+}
+
+#switch button:hover{
+    outline: 8px solid var(--highlight-color);
+}
+
+#switch span{
+    display: block;
+    height: 24px;
+    width: 64px;
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    background: var(--surface-color);
+    backdrop-filter: blur(4px);
 }
 
 /*links*/
@@ -131,4 +178,37 @@ footer{
     padding: 24px 0;
     text-align: center;
     font-size: 14px;
+}
+
+/*media queries*/
+/*adicionar ajuste do fundo para diferentes dispositivos*/
+
+@media (min-width: 700px){
+    :root{
+        --bg-img: url(assets/bg-desktop.jpg);
+    }
+
+    .light{
+        --bg-img: url(assets/bg-desktop-light.jpg);
+    }
+}
+
+/*animations*/
+
+@keyframes slide_in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 53.5%;
+    }
+}
+
+@keyframes slide_back {
+    from{
+        left: 53.5%
+    }
+    to{
+        left: 0;
+    }
 }
